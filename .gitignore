@@ -1,4 +1,5 @@
-
+bookshare/settings/service.py
+db.sqlite3
 
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template

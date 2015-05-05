@@ -31,6 +31,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
 
     'user_profile',
+    'book',
 )
 
 MIDDLEWARE_CLASSES = (

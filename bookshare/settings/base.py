@@ -29,6 +29,8 @@ INSTALLED_APPS = (
 
     'debug_toolbar',
     'social.apps.django_app.default',
+
+    'user_profile',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,3 +91,16 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+SOCIAL_AUTH_PIPELINE = [
+    # http://psa.matiasaguirre.net/docs/pipeline.html
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'user_profile.pipelines.create_profile_when_join',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+]

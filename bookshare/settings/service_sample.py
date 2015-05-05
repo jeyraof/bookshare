@@ -11,7 +11,7 @@ TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1']
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
     'default': {

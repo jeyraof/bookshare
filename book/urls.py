@@ -6,4 +6,5 @@ from book.views import BookDetail
 
 urlpatterns = [
     url(r'^$', BookDetail.as_view()),
+    url(r'^search$', 'book.views.search_books'),
 ]

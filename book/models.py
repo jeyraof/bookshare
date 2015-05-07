@@ -50,7 +50,8 @@ class Book(models.Model):
                             'category': remove_highlight(item.get('category')),
                             'publisher': remove_highlight(item.get('pub_nm')),
                             'thumb': item.get('cover_l_url')}
-                book, created = cls.objects.get_or_create(isbn=item.get('isbn13'), defaults=defaults)
+                book, created = cls.objects.get_or_create(isbn=remove_highlight(item.get('isbn13')),
+                                                          defaults=defaults)
                 books.append(book)
             return books
         return []

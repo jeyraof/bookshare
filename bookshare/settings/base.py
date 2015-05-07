@@ -50,7 +50,9 @@ ROOT_URLCONF = 'bookshare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,4 +108,5 @@ SOCIAL_AUTH_PIPELINE = [
     'social.pipeline.user.user_details'
 ]
 
-LOGIN_REDIRECT_URL = '/'  # 로그인 후 리다이렉트 될 경로
+LOGIN_REDIRECT_URL = '/'   # 로그인 후 리다이렉트 될 경로
+LOGOUT_REDIRECT_URL = '/'  # 로그아웃 후 리다이렉트 될 경로

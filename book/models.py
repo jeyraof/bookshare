@@ -42,3 +42,6 @@ class Book(models.Model):
             'searchType': 'isbn',
             'q': isbn,
         })
+
+    class Meta:
+        db_table = 'book'

@@ -13,10 +13,14 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^book/', include('book.urls')),
+    url(r'^logout/', 'django.contrib.auth.views.logout', {'next_page': settings.LOGOUT_REDIRECT_URL}),
     url('', include('social.apps.django_app.urls', namespace='social')),
+
     url(r'^admin/', include(admin.site.urls)),
 ]

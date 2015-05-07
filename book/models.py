@@ -11,6 +11,7 @@ class Book(models.Model):
     title = models.CharField(max_length=255, db_index=1)
     publisher = models.CharField(max_length=50, db_index=1)
     category = models.CharField(max_length=50, db_index=1)
+    thumb = models.CharField(max_length=255, blank=1)
 
     @classmethod
     def crawl_from_daum(cls, search_dic):

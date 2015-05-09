@@ -34,5 +34,8 @@ class Library(models.Model):
         lib.save()
         return lib
 
+    def remove(self):
+        self.delete()
+
     class Meta:
         db_table = 'user_library'

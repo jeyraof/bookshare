@@ -13,9 +13,26 @@ class Profile(models.Model):
 
 
 class Library(models.Model):
+    # Constants
+    STATUS_HAVE = (0, 'have')
+    STATUS_RENTAL = (1, 'rental')
+
+    # Columns
     user = models.ForeignKey(User, db_index=1)
     book = models.ForeignKey('book.Book', db_index=1)
-    stock = models.IntegerField(default=1)
+    available = models.BooleanField(default=0)
+    status = models.IntegerField(choices=(STATUS_HAVE,
+                                          STATUS_RENTAL),
+                                 default=STATUS_HAVE[0])
+
+    @classmethod
+    def add(cls, user, book):
+        if not user or not book:
+            return None
+
+        lib = cls(user=user, book=book)
+        lib.save()
+        return lib
 
     class Meta:
         db_table = 'user_library'

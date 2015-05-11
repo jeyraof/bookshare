@@ -15,12 +15,24 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import include, url
+from django.conf.urls.static import static
 from django.contrib import admin
+from bookshare import views as bookshare_views
+
+main_patterns = [
+    url(r'^$', bookshare_views.main, name='main'),
+]
 
 urlpatterns = [
+    url(r'', include(main_patterns)),
     url(r'^book/', include('book.urls')),
-    url(r'^logout/', 'django.contrib.auth.views.logout', {'next_page': settings.LOGOUT_REDIRECT_URL}),
+    url(r'^logout/', 'django.contrib.auth.views.logout',
+        {'next_page': settings.LOGOUT_REDIRECT_URL},
+        name='logout'),
     url('', include('social.apps.django_app.urls', namespace='social')),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

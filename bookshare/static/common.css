@@ -71,11 +71,11 @@ a.btn.facebook {
   float: left;
   max-height: 50px;
   margin-right: 25px;
+  line-height: 50px;
 }
 #header .menu li .logout,
 #header .menu li .notify {
   font-size: 25px;
-  line-height: 50px;
 }
 #header .menu.right li:last-child {
   margin: 0;

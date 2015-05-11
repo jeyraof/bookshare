@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <title>Bookshare!</title>
+    <link rel="stylesheet" href="{% static 'common.css' %}"/>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+</head>
+<body>
+    <div id="header">
+        <a class="title" href="{% url 'main' %}">
+            BookSha.<span class="highlight">re</span>
+        </a>
+
+        <ul class="menu right">
+        {% if not user.is_authenticated %}
+            <li>
+                <a class="btn facebook" href="{% url 'social:begin' 'facebook' %}">페이스북으로 로그인</a>
+            </li>
+        {% else %}
+            <li>
+                <div class="profile">
+                    <a href="#">
+                        <img class="photo" src="{{ user.profile.photo }}" alt="{{ user.last_name }} {{ user.first_name }}"/>
+                        {{ user.last_name }} {{ user.first_name }}
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="notify ion-android-notifications"></a>
+            </li>
+            <li>
+                <a href="{% url 'logout' next_page='/' %}" class="logout ion-power"></a>
+            </li>
+        {% endif %}
+        </ul>
+    </div>
+    <div id="body">
+        asdf
+    </div>
+</body>
+</html>

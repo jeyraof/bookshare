@@ -6,6 +6,7 @@ from django.db import models
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
+    photo = models.CharField(max_length=255, default='')
     level = models.IntegerField(u'레벨')
 
     class Meta:

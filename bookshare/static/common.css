@@ -42,6 +42,7 @@ a.btn.facebook {
   top: 0;
   left: 0;
   right: 0;
+  min-width: 960px;
   border-bottom: 1px solid #cfcfcf;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -94,5 +95,6 @@ a.btn.facebook {
   border-radius: 15px;
 }
 #body {
-  padding: 120px 40px 0;
+  padding: 120px 40px 40px;
+  min-width: 960px;
 }

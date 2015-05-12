@@ -68,7 +68,12 @@
             <ul class="menu">
                 <li>
                     <a href="#">
-                        <i class="icon ion-email"></i> 편지함
+                        <i class="icon ion-ios-box-outline"></i> 내 책들
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-email"></i> 편지
                     </a>
                 </li>
                 <li>
@@ -78,7 +83,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="icon ion-stats-bars"></i> 대여 기록
+                        <i class="icon ion-stats-bars"></i> 지금까지 빌려본 책
                     </a>
                 </li>
                 <li>
@@ -112,9 +117,7 @@
 
 
         </div>
-        <div class="content">
-            content wrap
-        </div>
+        <div class="content">{% block content %}{% endblock %}</div>
     </div>
 </body>
 </html>

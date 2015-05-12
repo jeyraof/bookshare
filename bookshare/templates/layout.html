@@ -35,16 +35,86 @@
                 </div>
             </li>
             <li>
-                <a href="#" class="notify ion-android-notifications"></a>
-            </li>
-            <li>
                 <a href="{% url 'logout' next_page='/' %}" class="logout ion-power"></a>
             </li>
         {% endif %}
         </ul>
     </div>
     <div id="body">
-        asdf
+        <div class="sidebar">
+            <h4 class="label">메뉴</h4>
+            <ul class="menu">
+                <li class="active">
+                    <a href="{% url 'main' %}">
+                        <i class="icon ion-earth"></i> 지금!
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-ios-book"></i> 최근 대여된 도서
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-ios-book-outline"></i> 대여 가능한 도서
+                    </a>
+                </li>
+            </ul>
+
+            {% if user.is_authenticated %}
+            <div class="divider"></div>
+
+            <h4 class="label">내 서재</h4>
+            <ul class="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon ion-email"></i> 편지함
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-heart"></i> 이책 괜찮다!
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-stats-bars"></i> 대여 기록
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-settings"></i> 내 정보
+                    </a>
+                </li>
+            </ul>
+            {% endif %}
+
+            <div class="divider"></div>
+
+            <h4 class="label">모두의 공간</h4>
+            <ul class="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon ion-speakerphone"></i> 공지사항
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-ios-list-outline"></i> 게시판
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon ion-person-stalker"></i> 사용자 그래프
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+        <div class="content">
+            content wrap
+        </div>
     </div>
 </body>
 </html>

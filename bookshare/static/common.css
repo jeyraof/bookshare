@@ -18,7 +18,7 @@ a {
 a.btn {
   display: inline-block;
   padding: 5px 20px;
-  font-size: 10px;
+  font-size: 0.8333333333333334em;
   line-height: 20px;
   border-radius: 4px;
 }
@@ -34,7 +34,7 @@ a.btn.facebook {
   float: right;
 }
 #header {
-  padding: 15px 40px;
+  padding: 15px 30px;
   background: #ffffff;
   clear: both;
   overflow: hidden;
@@ -43,6 +43,7 @@ a.btn.facebook {
   left: 0;
   right: 0;
   min-width: 960px;
+  z-index: 10;
   border-bottom: 1px solid #cfcfcf;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -54,6 +55,7 @@ a.btn.facebook {
   font-size: 2em;
   line-height: 50px;
   font-weight: bold;
+  padding: 0 10px;
 }
 #header .title:hover {
   color: #277F38;
@@ -74,12 +76,11 @@ a.btn.facebook {
   margin-right: 25px;
   line-height: 50px;
 }
-#header .menu li .logout,
-#header .menu li .notify {
-  font-size: 25px;
+#header .menu li .logout {
+  font-size: 2.1em;
 }
 #header .menu.right li:last-child {
-  margin: 0;
+  margin-right: 10px;
 }
 #header .profile {
   position: relative;
@@ -95,6 +96,58 @@ a.btn.facebook {
   border-radius: 15px;
 }
 #body {
-  padding: 120px 40px 40px;
+  padding: 120px 30px 40px;
   min-width: 960px;
+  clear: both;
+}
+#body .sidebar {
+  float: left;
+  width: 215px;
+}
+#body .sidebar h4.label {
+  color: #a2a2a2;
+  display: block;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 1em;
+}
+#body .sidebar ul.menu {
+  padding: 0;
+  margin: 10px 0 0 0;
+  list-style: none;
+}
+#body .sidebar ul.menu li {
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 7px;
+}
+#body .sidebar ul.menu li a {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  line-height: 24px;
+  font-size: 0.917em;
+  vertical-align: middle;
+  color: #545454;
+}
+#body .sidebar ul.menu li a .icon {
+  font-size: 2em;
+  display: inline;
+  position: absolute;
+  top: 1px;
+  left: 0;
+}
+#body .sidebar ul.menu li.active {
+  background: #e6e6e6;
+}
+#body .sidebar ul.menu li:hover a {
+  color: #6eb57d;
+}
+#body .sidebar .divider {
+  margin: 20px 5px 0;
+  border-top: 1px solid #dcdcdc;
+  padding-bottom: 20px;
+}
+#body .content {
+  padding-left: 270px;
 }

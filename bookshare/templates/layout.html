@@ -21,16 +21,16 @@
         {% else %}
             <li>
                 <div class="profile">
-                    <a href="#">
-                        {% if user.profile.photo %}
-                            <img class="photo" src="{{ user.profile.photo }}" alt="{{ user.username }}"/>
-                        {% endif %}
+                    {% if user.profile.photo %}
+                        <img class="photo" src="{{ user.profile.photo }}" alt="{{ user.username }}"/>
+                    {% endif %}
 
-                        {% if not user.last_name and not user.first_name %}
-                            {{ user.username }}
-                        {% else %}
-                            {{ user.last_name }} {{ user.first_name }}
-                        {% endif %}
+                    <a href="/">
+                    {% if not user.last_name and not user.first_name %}
+                        {{ user.username }}
+                    {% else %}
+                        {{ user.last_name }} {{ user.first_name }}
+                    {% endif %}
                     </a>
                 </div>
             </li>

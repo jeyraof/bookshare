@@ -25,12 +25,13 @@ main_patterns = [
 
 urlpatterns = [
     url(r'', include(main_patterns)),
-    url(r'^book/', include('book.urls')),
-    url(r'^logout/', 'django.contrib.auth.views.logout',
+    url(r'^book/', include('book.urls', namespace='book')),
+
+    url(r'^logout/',
+        'django.contrib.auth.views.logout',
         {'next_page': settings.LOGOUT_REDIRECT_URL},
         name='logout'),
     url('', include('social.apps.django_app.urls', namespace='social')),
-
     url(r'^admin/', include(admin.site.urls)),
 ]
 

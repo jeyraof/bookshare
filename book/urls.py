@@ -5,6 +5,8 @@ from book.views import BookDetail
 
 
 urlpatterns = [
-    url(r'^$', BookDetail.as_view()),
-    url(r'^search$', 'book.views.search_books'),
+    url(r'^(\d+)$', BookDetail.as_view(), name='detail'),
+    url(r'^search$', 'book.views.search_books', name='search'),
+    url(r'^recent$', BookDetail.as_view(), name='recent'),
+    url(r'^available$', BookDetail.as_view(), name='available'),
 ]

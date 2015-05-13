@@ -15,6 +15,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_PATH = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../../')
 
 
 # Application definition
@@ -30,6 +31,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'social.apps.django_app.default',
 
+    'bookshare',
     'user_profile',
     'book',
 )
@@ -90,6 +92,9 @@ STATIC_ROOT = os.path.join(BASE_DIR + 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+NODE_MODULES_URL = '/nm/'
+NODE_MODULES_ROOT = os.path.join(PROJECT_PATH, 'node_modules')
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 

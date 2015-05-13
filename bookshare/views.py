@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.shortcuts import render
+from bookshare.utils import react_render
 
 
 def main(request):
-
-    return render(request, 'layout.html')
+    return react_render(request, 'app/main.js', {})

@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load common %}
 <!DOCTYPE html>
 <html>
 <head lang="ko">
@@ -117,7 +118,14 @@
 
 
         </div>
-        <div class="content">{% block content %}{% endblock %}</div>
+        <div class="content" id="r-content">
+        {% block content %}{% endblock %}
+        </div>
+
+        <script src="{% node_module 'babel-core/browser.js' %}"></script>
+        <script src="{% node_module 'react/dist/react-with-addons.min.js' %}"></script>
+        <script src="{% node_module 'jquery/dist/jquery.min.js' %}"></script>
+        {% block js %}{% endblock %}
     </div>
 </body>
 </html>

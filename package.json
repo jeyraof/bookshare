@@ -1,0 +1,19 @@
+{
+  "name": "bookshare",
+  "version": "0.0.1",
+  "description": "bookshare's javascript depenencies",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeyraof/bookshare.git"
+  },
+  "author": "jaeyoung",
+  "bugs": {
+    "url": "https://github.com/jeyraof/bookshare/issues"
+  },
+  "homepage": "https://github.com/jeyraof/bookshare",
+  "dependencies": {
+    "react": "^0.13.3",
+    "babel-core": "^5.3.1",
+    "jquery": "^1.11.3"
+  }
+}

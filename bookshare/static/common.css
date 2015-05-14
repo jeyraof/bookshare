@@ -72,6 +72,24 @@ button.btn.facebook {
 #header .title .highlight {
   color: #6fcce2;
 }
+#header .search-box {
+  margin: 0 0 0 50px;
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 15px;
+}
+#header .search-box form {
+  margin: 0;
+  padding: 0;
+}
+#header .search-box label {
+  margin-right: 5px;
+}
+#header .search-box input[type=text] {
+  border: 0;
+  font-size: 1em;
+}
 #header .menu {
   list-style: none;
   margin: 0;

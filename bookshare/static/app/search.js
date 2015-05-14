@@ -52,10 +52,15 @@ var SearchList = React.createClass({
     var qsSet = this.getQueryString().search(true);
 
     this.searchBook(qsSet.q, 1, function(res) {
-      this.setState({
-        bookList: res.item,
-        page: res.page
-      });
+      if (res.ok) {
+        this.setState({
+          bookList: res.item,
+          page: res.page
+        });
+      } else {
+        alert(res.msg);
+        history.go(-1);
+      }
     }.bind(this));
   },
 

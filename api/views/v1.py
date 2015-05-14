@@ -9,7 +9,10 @@ from bookshare.utils import serialize, paginate
 def search(request):
     q = request.GET.get('q', None)
     if not q:
-        return HttpResponseBadRequest(u'인자가 부족합니다.')
+        return JsonResponse({
+            'ok': 0,
+            'msg': u'검색어가 없습니다.',
+        })
 
     page, book_a, book_z = paginate(request.GET, Book.SEARCH_COUNT)
 

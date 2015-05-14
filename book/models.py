@@ -18,6 +18,7 @@ class Book(models.Model):
     # CONSTANT
     ALLOWED_SEARCH_TYPES = ['all', 'title', 'keyword', 'isbn', 'contents', 'overview', 'publisher']
     DAUM_API_URL = 'https://apis.daum.net/search/book'
+    SEARCH_COUNT = 20
 
     @classmethod
     def crawl_from_daum(cls, search_dic):
@@ -27,7 +28,6 @@ class Book(models.Model):
         params = {
             'apikey': settings.DAUM_API_KEY,
             'output': 'json',
-            'result': 20,
         }
         params.update(search_dic)
         r = requests.get(cls.DAUM_API_URL, params=params)
@@ -58,10 +58,12 @@ class Book(models.Model):
         return []
 
     @classmethod
-    def search(cls, search_type, q):
+    def search(cls, search_type, q, embago=20, page=1):
         return cls.crawl_from_daum({
             'searchType': search_type,
             'q': q,
+            'result': embago,
+            'pageno': page,
         })
 
     class Meta:

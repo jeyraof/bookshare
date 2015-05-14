@@ -30,8 +30,7 @@ var SearchList = React.createClass({
     var qsSet = this.getQueryString().search(true);
 
     return {
-      bookListDAUM: [],
-      bookListDB: [],
+      bookList: [],
       page: 1,
       q: qsSet.q || null
     }
@@ -54,8 +53,7 @@ var SearchList = React.createClass({
 
     this.searchBook(qsSet.q, 1, function(res) {
       this.setState({
-        bookListDB: res.item.db,
-        bookListDAUM: res.item.daum,
+        bookList: res.item,
         page: res.page
       });
     }.bind(this));
@@ -66,8 +64,7 @@ var SearchList = React.createClass({
     this.searchBook(qsSet.q, this.state.page + 1, function(res) {
       this.setState((previous, props) => {
         return {
-          bookListDB: previous.bookListDB.concat(res.item.db),
-          bookListDAUM: previous.bookListDAUM.concat(res.item.daum),
+          bookList: previous.bookList.concat(res.item),
           page: res.page
         }
       });
@@ -76,7 +73,7 @@ var SearchList = React.createClass({
 
   render: function() {
     return(<div className="search-box">
-      <BookList data={this.state.bookListDB}/>
+      <BookList data={this.state.bookList}/>
       <div>
         <button className="more" onClick={this.searchMore}>더 불러오기</button>
       </div>

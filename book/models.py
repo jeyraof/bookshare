@@ -13,6 +13,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=50, db_index=1)
     category = models.CharField(max_length=50, db_index=1)
     thumb = models.CharField(max_length=255, blank=1)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     # CONSTANT
     ALLOWED_SEARCH_TYPES = ['all', 'title', 'keyword', 'isbn', 'contents', 'overview', 'publisher']
@@ -62,16 +63,6 @@ class Book(models.Model):
             'searchType': search_type,
             'q': q,
         })
-
-    def to_json(self):
-        return {'id': self.id,
-                'author': self.author,
-                'translator': self.translator,
-                'isbn': self.isbn,
-                'title': self.title,
-                'publisher': self.publisher,
-                'category': self.category,
-                'thumb': self.thumb}
 
     class Meta:
         db_table = 'book'

@@ -20,7 +20,7 @@ def serialize(obj_list):
 
 
 def paginate(d, embago=20):
-    page_now = d.get('page', 1)
+    page_now = int(d.get('page', 1))
     item_init = (page_now - 1) * embago
     item_end = item_init + embago
     return page_now, item_init, item_end

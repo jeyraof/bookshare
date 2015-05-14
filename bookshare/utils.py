@@ -2,6 +2,7 @@
 
 from django.core import serializers
 from django.shortcuts import render
+import json
 
 
 def react_render(request, script_path, context=None):
@@ -16,7 +17,7 @@ def react_render(request, script_path, context=None):
 
 def serialize(obj_list):
     serialized_data = serializers.serialize('json', obj_list)
-    return serialized_data
+    return json.loads(serialized_data)
 
 
 def paginate(d, embago=20):

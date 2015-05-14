@@ -11,7 +11,7 @@ def search(request):
     if not q:
         return HttpResponseBadRequest(u'인자가 부족합니다.')
 
-    page, book_a, book_z = utils.paginate(request.GET, 20)
+    page, book_a, book_z = utils.paginate(request.GET, 5)
 
     books_db = Book.objects\
                    .filter(Q(author__contains=q) |
@@ -29,5 +29,6 @@ def search(request):
             'db': utils.serialize(books_db),
             'daum': utils.serialize(books_daum),
         },
-        'page': page,
+        'page': int(page),
+        'q': q,
     })

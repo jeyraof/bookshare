@@ -25,9 +25,9 @@ def search(request):
 
     return JsonResponse({
         'ok': 1,
-        'msg': u'',
         'item': {
             'db': utils.serialize(books_db),
             'daum': utils.serialize(books_daum),
-        }
+        },
+        'page': page,
     })

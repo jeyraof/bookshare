@@ -1,6 +1,8 @@
 bookshare/settings/service.py
 db.sqlite3
 node_modules/
+.venv/
+nginx.conf
 
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template

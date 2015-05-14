@@ -15,18 +15,27 @@ a {
   color: inherit;
   text-decoration: none;
 }
-a.btn {
+a.btn,
+button.btn {
   display: inline-block;
   padding: 5px 20px;
   font-size: 0.83333333em;
   line-height: 20px;
+  border: 0;
   border-radius: 4px;
+  cursor: pointer;
 }
-a.btn.green {
+a.btn.green,
+button.btn.green {
   background: #6eb57d;
   color: #ffffff;
 }
-a.btn.facebook {
+a.btn.green:hover,
+button.btn.green:hover {
+  background: #277F38;
+}
+a.btn.facebook,
+button.btn.facebook {
   background: #3b5998;
   color: #ffffff;
 }

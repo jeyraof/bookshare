@@ -17,16 +17,22 @@ a {
   text-decoration: none;
 }
 
-a.btn {
+a.btn, button.btn {
   display: inline-block;
   padding: 5px 20px;
   font-size: 10/12em;
   line-height: 20px;
+  border: 0;
   border-radius: 4px;
+  cursor: pointer;
 
   &.green {
     background: #6eb57d;
     color: #ffffff;
+
+    &:hover {
+      background: #277F38;
+    }
   }
 
   &.facebook {

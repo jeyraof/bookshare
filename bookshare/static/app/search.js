@@ -75,7 +75,7 @@ var SearchList = React.createClass({
     return(<div className="search-box">
       <BookList data={this.state.bookList}/>
       <div>
-        <button className="more" onClick={this.searchMore}>더 불러오기</button>
+        <button className="more btn green" onClick={this.searchMore}>더 불러오기</button>
       </div>
     </div>);
   }

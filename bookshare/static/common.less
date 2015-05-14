@@ -256,6 +256,56 @@ ul.book-list {
       font-size: 10/12em;
       line-height: 20px;
       color: #a2a2a2;
+      height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .overlay {
+      display: none;
+      position: absolute;
+      border-radius: 5px;
+      width: 170px;
+      height: 247px;
+      background-color: rgba(0, 0, 0, 0.4);
+
+      .add, .stock {
+        position: relative;
+        text-align: center;
+        height: 125px;
+
+        a {
+          display: block;
+          padding-top: 33px;
+
+          i, p.msg {
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            opacity: .7;
+            text-shadow: 0 1px 1px rgba(0,0,0,.5);
+          }
+
+          i {
+            font-size: 3em;
+          }
+
+          p.msg {
+            margin: 5px 0;
+          }
+
+          &:hover {
+            i, p.msg {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover .overlay {
+        display: block;
     }
   }
 }

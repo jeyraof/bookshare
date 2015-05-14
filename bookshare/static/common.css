@@ -222,4 +222,54 @@ ul.book-list .book p.author {
   font-size: 0.83333333em;
   line-height: 20px;
   color: #a2a2a2;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ul.book-list .book .overlay {
+  display: none;
+  position: absolute;
+  border-radius: 5px;
+  width: 170px;
+  height: 247px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+ul.book-list .book .overlay .add,
+ul.book-list .book .overlay .stock {
+  position: relative;
+  text-align: center;
+  height: 125px;
+}
+ul.book-list .book .overlay .add a,
+ul.book-list .book .overlay .stock a {
+  display: block;
+  padding-top: 33px;
+}
+ul.book-list .book .overlay .add a i,
+ul.book-list .book .overlay .stock a i,
+ul.book-list .book .overlay .add a p.msg,
+ul.book-list .book .overlay .stock a p.msg {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  opacity: .7;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+ul.book-list .book .overlay .add a i,
+ul.book-list .book .overlay .stock a i {
+  font-size: 3em;
+}
+ul.book-list .book .overlay .add a p.msg,
+ul.book-list .book .overlay .stock a p.msg {
+  margin: 5px 0;
+}
+ul.book-list .book .overlay .add a:hover i,
+ul.book-list .book .overlay .stock a:hover i,
+ul.book-list .book .overlay .add a:hover p.msg,
+ul.book-list .book .overlay .stock a:hover p.msg {
+  opacity: 1;
+}
+ul.book-list .book:hover .overlay {
+  display: block;
 }

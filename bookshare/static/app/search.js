@@ -4,6 +4,21 @@ var BookListItem = React.createClass({
     var thumb = this.props.data.thumb || emptyImage;
 
     return (<div className="book">
+      <div className="overlay">
+        <div className="add">
+          <a>
+            <i className="ion-plus"></i>
+            <p className="msg">내 책장으로</p>
+          </a>
+        </div>
+
+        <div className="stock">
+          <a>
+            <i className="ion-heart"></i>
+            <p className="msg">보고싶은 책</p>
+          </a>
+        </div>
+      </div>
       <img className="cover" src={thumb}/>
       <h4 className="title" title={this.props.data.title}>{this.props.data.title}</h4>
       <p className="author">{this.props.data.author}</p>

@@ -22,32 +22,64 @@ var BookList = React.createClass({
 });
 
 var SearchList = React.createClass({
-  getInitialState: () => {
+  getQueryString: () => {
+    return new URI(window.location.search || '');
+  },
+
+  getInitialState: function() {
+    var qsSet = this.getQueryString().search(true);
+
     return {
       bookListDAUM: [],
       bookListDB: [],
-      page: null
+      page: 1,
+      q: qsSet.q || null
     }
   },
 
-  componentWillMount: function() {
-    var queryString = window.location.search || '';
+  searchBook: function(keyword, page, success) {
+    var qs = this.getQueryString();
     $.ajax({
-        type: "GET",
-        url: "/api/v1/search" + queryString,
-        success: function(res) {
-            this.setState({
-              bookListDB: JSON.parse(res.item.db),
-              bookListDAUM: JSON.parse(res.item.daum),
-              page: res.page
-            });
-        }.bind(this)
+      type: "GET",
+      url: "/api/v1/search" + qs.setSearch({
+        page: page,
+        q: keyword
+      }),
+      success: success.bind(this)
     })
+  },
+
+  componentWillMount: function() {
+    var qsSet = this.getQueryString().search(true);
+
+    this.searchBook(qsSet.q, 1, function(res) {
+      this.setState({
+        bookListDB: res.item.db,
+        bookListDAUM: res.item.daum,
+        page: res.page
+      });
+    }.bind(this));
+  },
+
+  searchMore: function() {
+    var qsSet = this.getQueryString().search(true);
+    this.searchBook(qsSet.q, this.state.page + 1, function(res) {
+      this.setState((previous, props) => {
+        return {
+          bookListDB: previous.bookListDB.concat(res.item.db),
+          bookListDAUM: previous.bookListDAUM.concat(res.item.daum),
+          page: res.page
+        }
+      });
+    }.bind(this));
   },
 
   render: function() {
     return(<div className="search-box">
       <BookList data={this.state.bookListDB}/>
+      <div>
+        <button className="more" onClick={this.searchMore}>더 불러오기</button>
+      </div>
     </div>);
   }
 });

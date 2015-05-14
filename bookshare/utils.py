@@ -15,9 +15,12 @@ def react_render(request, script_path, context=None):
 
 
 def serialize(obj_list):
-    if not obj_list:
-        return u''
-
-    obj = obj_list if isinstance(obj_list, list) else [obj_list, ]
-    serialized_data = serializers.serialize('json', obj)
+    serialized_data = serializers.serialize('json', obj_list)
     return serialized_data
+
+
+def paginate(d, embago=20):
+    page_now = d.get('page', 1)
+    item_init = (page_now - 1) * embago
+    item_end = item_init + embago
+    return page_now, item_init, item_end

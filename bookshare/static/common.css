@@ -18,7 +18,7 @@ a {
 a.btn {
   display: inline-block;
   padding: 5px 20px;
-  font-size: 0.8333333333333334em;
+  font-size: 0.83333333em;
   line-height: 20px;
   border-radius: 4px;
 }
@@ -42,7 +42,7 @@ a.btn.facebook {
   top: 0;
   left: 0;
   right: 0;
-  min-width: 960px;
+  min-width: 1100px;
   z-index: 10;
   border-bottom: 1px solid #cfcfcf;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -104,6 +104,10 @@ a.btn.facebook {
   float: left;
   width: 215px;
 }
+#body .sidebar:after {
+  display: block;
+  clear: both;
+}
 #body .sidebar h4.label {
   color: #a2a2a2;
   display: block;
@@ -150,4 +154,44 @@ a.btn.facebook {
 }
 #body .content {
   padding-left: 270px;
+  position: relative;
+}
+ul.book-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+ul.book-list .book {
+  float: left;
+  margin: 0 20px 30px 0;
+  width: 170px;
+  height: 320px;
+  position: relative;
+}
+ul.book-list .book img.cover {
+  display: block;
+  width: 170px;
+  height: 247px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.35);
+}
+ul.book-list .book h4.title {
+  margin: 11px 0 0 0;
+  padding: 0;
+  font-size: 1.08333333em;
+  line-height: 20px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ul.book-list .book p.author {
+  margin: 0;
+  padding: 0;
+  font-size: 0.83333333em;
+  line-height: 20px;
+  color: #a2a2a2;
 }

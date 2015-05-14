@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'', include(main_patterns)),
     url(r'^book/', include('book.urls', namespace='book')),
 
+    url(r'^api/v1/', include('api.urls', namespace='api_v1')),
+    # Auth, default
     url(r'^logout/',
         'django.contrib.auth.views.logout',
         {'next_page': settings.LOGOUT_REDIRECT_URL},

@@ -32,6 +32,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
 
     'bookshare',
+    'api',
     'user_profile',
     'book',
 )

@@ -129,10 +129,8 @@
         {% block content %}{% endblock %}
         </div>
 
-        <script src="{% node_module 'babel-core/browser.js' %}"></script>
-        <script src="{% node_module 'react/dist/react-with-addons.min.js' %}"></script>
-        <script src="{% node_module 'jquery/dist/jquery.min.js' %}"></script>
-        <script src="{% node_module 'URIjs/src/URI.min.js' %}"></script>
+        <script src="{% static 'vendor/system.js' %}"></script>
+        <script src="{% static 'system.config.js' %}"></script>
         {% block js %}{% endblock %}
     </div>
 </body>

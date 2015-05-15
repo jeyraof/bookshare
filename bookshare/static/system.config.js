@@ -11,7 +11,8 @@ System.config({
     "store/*": "/static/store/*.js"
   },
   "map": {
-    "URIjs": "/nm/URIjs/src/URI"
+    "URIjs": "/nm/URIjs/src/URI",
+    "flux": "/nm/flux/index"
   },
   "babelOptions": {
     "optional": ["runtime"],

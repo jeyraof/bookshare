@@ -7,8 +7,7 @@ System.config({
     "react": "/nm/react/dist/react.min.js",
     "jQuery": "/nm/jquery/dist/jquery.min.js",
 
-    "app/*": "/static/app/*.js",
-    "store/*": "/static/store/*.js"
+    "app/*": "/static/app/*.js"
   },
   "map": {
     "URIjs": "/nm/URIjs/src/URI",

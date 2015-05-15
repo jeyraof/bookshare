@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db.models import Q
-from django.http import (JsonResponse, HttpResponseBadRequest)
+from django.http import JsonResponse
 from book.models import Book
 from bookshare.utils import serialize, paginate
 

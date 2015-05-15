@@ -41,33 +41,36 @@ var BookList = React.createClass({
 });
 
 var SearchList = React.createClass({
-  getQueryString: () => {
+  getQueryString() {
     return new URI(window.location.search || '');
   },
 
-  getInitialState: function() {
+  getInitialState() {
     var qsSet = this.getQueryString().search(true);
 
     return {
+      inProcessing: false,
       bookList: [],
       page: 1,
       q: qsSet.q || null
     }
   },
 
-  searchBook: function(keyword, page, success) {
+  searchBook(keyword, page, success) {
     var qs = this.getQueryString();
+    this.setState({inProcessing: true});
     $.ajax({
       type: "GET",
       url: "/api/v1/search" + qs.setSearch({
         page: page,
         q: keyword
       }),
-      success: success.bind(this)
+      success: success.bind(this),
+      complete: function() {this.setState({inProcessing: false})}.bind(this)
     })
   },
 
-  componentWillMount: function() {
+  componentWillMount() {
     var qsSet = this.getQueryString().search(true);
 
     this.searchBook(qsSet.q, 1, function(res) {
@@ -83,7 +86,7 @@ var SearchList = React.createClass({
     }.bind(this));
   },
 
-  searchMore: function() {
+  searchMore() {
     var qsSet = this.getQueryString().search(true);
     this.searchBook(qsSet.q, this.state.page + 1, function(res) {
       this.setState((previous, props) => {
@@ -95,11 +98,15 @@ var SearchList = React.createClass({
     }.bind(this));
   },
 
-  render: function() {
+  render() {
+    var msg = this.state.inProcessing ? '로딩중' : '더 불러오기';
+    var disabled = this.state.inProcessing ? 'disabled' : '';
     return(<div className="search-box">
       <BookList data={this.state.bookList}/>
       <div>
-        <button className="more btn green" onClick={this.searchMore}>더 불러오기</button>
+        <button className="more btn green" onClick={this.searchMore} disabled={disabled}>
+        {msg}
+        </button>
       </div>
     </div>);
   }

@@ -71,21 +71,21 @@ button.btn.facebook {
 #header .title .highlight {
   color: #6fcce2;
 }
-#header .search-box {
+#header .search-form {
   margin: 0 0 0 50px;
   display: inline-block;
   padding: 4px 10px;
   border: 1px solid #e6e6e6;
   border-radius: 15px;
 }
-#header .search-box form {
+#header .search-form form {
   margin: 0;
   padding: 0;
 }
-#header .search-box label {
+#header .search-form label {
   margin-right: 5px;
 }
-#header .search-box input[type=text] {
+#header .search-form input[type=text] {
   border: 0;
   font-size: 1em;
 }
@@ -271,4 +271,7 @@ ul.book-list .book .overlay .stock a:hover p.msg {
 }
 ul.book-list .book:hover .overlay {
   display: block;
+}
+.search-box button.more[disabled=disabled] {
+  background: #a2a2a2;
 }
